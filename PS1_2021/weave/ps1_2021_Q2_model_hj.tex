@@ -1,0 +1,505 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,text={16.5cm,25.2cm},centering]{geometry}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.2ex}
+
+\hypersetup
+       {   pdfauthor = {  },
+           pdftitle={  },
+           colorlinks=TRUE,
+           linkcolor=black,
+           citecolor=blue,
+           urlcolor=blue
+       }
+
+
+
+
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    upquote=true,
+    breaklines=true,
+    breakindent=0pt,
+    keepspaces=true,
+    showspaces=false,
+    columns=fullflexible,
+    showtabs=false,
+    showstringspaces=false,
+    escapeinside={(*@}{@*)},
+    extendedchars=true,
+}
+\newcommand{\HLJLt}[1]{#1}
+\newcommand{\HLJLw}[1]{#1}
+\newcommand{\HLJLe}[1]{#1}
+\newcommand{\HLJLeB}[1]{#1}
+\newcommand{\HLJLo}[1]{#1}
+\newcommand{\HLJLk}[1]{\textcolor[RGB]{148,91,176}{\textbf{#1}}}
+\newcommand{\HLJLkc}[1]{\textcolor[RGB]{59,151,46}{\textit{#1}}}
+\newcommand{\HLJLkd}[1]{\textcolor[RGB]{214,102,97}{\textit{#1}}}
+\newcommand{\HLJLkn}[1]{\textcolor[RGB]{148,91,176}{\textbf{#1}}}
+\newcommand{\HLJLkp}[1]{\textcolor[RGB]{148,91,176}{\textbf{#1}}}
+\newcommand{\HLJLkr}[1]{\textcolor[RGB]{148,91,176}{\textbf{#1}}}
+\newcommand{\HLJLkt}[1]{\textcolor[RGB]{148,91,176}{\textbf{#1}}}
+\newcommand{\HLJLn}[1]{#1}
+\newcommand{\HLJLna}[1]{#1}
+\newcommand{\HLJLnb}[1]{#1}
+\newcommand{\HLJLnbp}[1]{#1}
+\newcommand{\HLJLnc}[1]{#1}
+\newcommand{\HLJLncB}[1]{#1}
+\newcommand{\HLJLnd}[1]{\textcolor[RGB]{214,102,97}{#1}}
+\newcommand{\HLJLne}[1]{#1}
+\newcommand{\HLJLneB}[1]{#1}
+\newcommand{\HLJLnf}[1]{\textcolor[RGB]{66,102,213}{#1}}
+\newcommand{\HLJLnfm}[1]{\textcolor[RGB]{66,102,213}{#1}}
+\newcommand{\HLJLnp}[1]{#1}
+\newcommand{\HLJLnl}[1]{#1}
+\newcommand{\HLJLnn}[1]{#1}
+\newcommand{\HLJLno}[1]{#1}
+\newcommand{\HLJLnt}[1]{#1}
+\newcommand{\HLJLnv}[1]{#1}
+\newcommand{\HLJLnvc}[1]{#1}
+\newcommand{\HLJLnvg}[1]{#1}
+\newcommand{\HLJLnvi}[1]{#1}
+\newcommand{\HLJLnvm}[1]{#1}
+\newcommand{\HLJLl}[1]{#1}
+\newcommand{\HLJLld}[1]{\textcolor[RGB]{148,91,176}{\textit{#1}}}
+\newcommand{\HLJLs}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLsa}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLsb}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLsc}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLsd}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLsdB}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLsdC}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLse}[1]{\textcolor[RGB]{59,151,46}{#1}}
+\newcommand{\HLJLsh}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLsi}[1]{#1}
+\newcommand{\HLJLso}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLsr}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLss}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLssB}[1]{\textcolor[RGB]{201,61,57}{#1}}
+\newcommand{\HLJLnB}[1]{\textcolor[RGB]{59,151,46}{#1}}
+\newcommand{\HLJLnbB}[1]{\textcolor[RGB]{59,151,46}{#1}}
+\newcommand{\HLJLnfB}[1]{\textcolor[RGB]{59,151,46}{#1}}
+\newcommand{\HLJLnh}[1]{\textcolor[RGB]{59,151,46}{#1}}
+\newcommand{\HLJLni}[1]{\textcolor[RGB]{59,151,46}{#1}}
+\newcommand{\HLJLnil}[1]{\textcolor[RGB]{59,151,46}{#1}}
+\newcommand{\HLJLnoB}[1]{\textcolor[RGB]{59,151,46}{#1}}
+\newcommand{\HLJLoB}[1]{\textcolor[RGB]{102,102,102}{\textbf{#1}}}
+\newcommand{\HLJLow}[1]{\textcolor[RGB]{102,102,102}{\textbf{#1}}}
+\newcommand{\HLJLp}[1]{#1}
+\newcommand{\HLJLc}[1]{\textcolor[RGB]{153,153,119}{\textit{#1}}}
+\newcommand{\HLJLch}[1]{\textcolor[RGB]{153,153,119}{\textit{#1}}}
+\newcommand{\HLJLcm}[1]{\textcolor[RGB]{153,153,119}{\textit{#1}}}
+\newcommand{\HLJLcp}[1]{\textcolor[RGB]{153,153,119}{\textit{#1}}}
+\newcommand{\HLJLcpB}[1]{\textcolor[RGB]{153,153,119}{\textit{#1}}}
+\newcommand{\HLJLcs}[1]{\textcolor[RGB]{153,153,119}{\textit{#1}}}
+\newcommand{\HLJLcsB}[1]{\textcolor[RGB]{153,153,119}{\textit{#1}}}
+\newcommand{\HLJLg}[1]{#1}
+\newcommand{\HLJLgd}[1]{#1}
+\newcommand{\HLJLge}[1]{#1}
+\newcommand{\HLJLgeB}[1]{#1}
+\newcommand{\HLJLgh}[1]{#1}
+\newcommand{\HLJLgi}[1]{#1}
+\newcommand{\HLJLgo}[1]{#1}
+\newcommand{\HLJLgp}[1]{#1}
+\newcommand{\HLJLgs}[1]{#1}
+\newcommand{\HLJLgsB}[1]{#1}
+\newcommand{\HLJLgt}[1]{#1}
+
+
+\begin{document}
+
+
+
+\begin{lstlisting}
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{------------------------------------------------------------------------------}@*)
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{Problem}@*) (*@\HLJLcs{Set}@*) (*@\HLJLcs{1}@*) (*@\HLJLcs{(2021):}@*) (*@\HLJLcs{Q2.}@*) (*@\HLJLcs{The}@*) (*@\HLJLcs{Sunk}@*) (*@\HLJLcs{Cost}@*) (*@\HLJLcs{Model}@*)
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{Written}@*) (*@\HLJLcs{by}@*) (*@\HLJLcs{Heejin}@*) (*@\HLJLcs{Yoon}@*)
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{------------------------------------------------------------------------------}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{keyword-enabled}@*) (*@\HLJLcs{structure}@*) (*@\HLJLcs{to}@*) (*@\HLJLcs{hold}@*) (*@\HLJLcs{model}@*) (*@\HLJLcs{primitives}@*)
+
+(*@\HLJLnd{@with{\_}kw}@*) (*@\HLJLk{struct}@*) (*@\HLJLn{Primitives}@*)
+    (*@\HLJLn{\ensuremath{\theta}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{4.00}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{elasticity}@*) (*@\HLJLcs{of}@*) (*@\HLJLcs{substitution}@*)
+    (*@\HLJLn{a\ensuremath{\bar}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{1.00}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{mean}@*) (*@\HLJLcs{of}@*) (*@\HLJLcs{log(a)}@*) (*@\HLJLcs{process}@*)
+    (*@\HLJLn{\ensuremath{\beta}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{0.90}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{discount}@*) (*@\HLJLcs{rate}@*)
+    (*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{1.10}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{tariff}@*)
+    (*@\HLJLn{w}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{1.14}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{(patial)}@*) (*@\HLJLcs{equilibrium}@*) (*@\HLJLcs{wage}@*)
+    (*@\HLJLn{\ensuremath{\rho}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{0.92}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{log(a)}@*) (*@\HLJLcs{process}@*) (*@\HLJLcs{parameter}@*)
+    (*@\HLJLn{\ensuremath{\sigma}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{0.25}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{log(a)}@*) (*@\HLJLcs{process}@*) (*@\HLJLcs{parameter}@*)
+    (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{1.20}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{variable}@*) (*@\HLJLcs{export}@*) (*@\HLJLcs{cost}@*)
+    (*@\HLJLn{f\ensuremath{\_0}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{0.40}@*)    (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{entry}@*) (*@\HLJLcs{cost}@*)
+    (*@\HLJLn{f\ensuremath{\_1}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{0.28}@*)    (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{continuing}@*) (*@\HLJLcs{cost}@*)
+    (*@\HLJLn{n{\_}a}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1000}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{number}@*) (*@\HLJLcs{of}@*) (*@\HLJLcs{a{\_}grid}@*)
+    (*@\HLJLn{T}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1000}@*)       (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{number}@*) (*@\HLJLcs{of}@*) (*@\HLJLcs{periods}@*) (*@\HLJLcs{for}@*) (*@\HLJLcs{simulation}@*)
+    (*@\HLJLn{N}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{15000}@*)      (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{number}@*) (*@\HLJLcs{of}@*) (*@\HLJLcs{firms}@*) (*@\HLJLcs{for}@*) (*@\HLJLcs{simulation}@*)
+    (*@\HLJLn{drop}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{200}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{periods}@*) (*@\HLJLcs{that}@*) (*@\HLJLcs{will}@*) (*@\HLJLcs{be}@*) (*@\HLJLcs{dropped}@*)
+    (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{moments{\_}data::Array{\{}Float64{\}}}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{[]}@*) (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{needed}@*) (*@\HLJLcs{if}@*) (*@\HLJLcs{we}@*) (*@\HLJLcs{want}@*) (*@\HLJLcs{to}@*) (*@\HLJLcs{estimate}@*) (*@\HLJLcs{key}@*) (*@\HLJLcs{parameters}@*) (*@\HLJLcs{using}@*) (*@\HLJLcs{SMM.}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{structure}@*) (*@\HLJLcs{that}@*) (*@\HLJLcs{holds}@*) (*@\HLJLcs{model}@*) (*@\HLJLcs{results}@*)
+
+(*@\HLJLk{mutable}@*) (*@\HLJLk{struct}@*) (*@\HLJLn{Results}@*)
+    (*@\HLJLn{\ensuremath{\Pi}{\_}a}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*)(*@\HLJLni{2}@*)(*@\HLJLp{{\}}}@*)
+    (*@\HLJLn{a{\_}grid}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{{\}}}@*)
+    (*@\HLJLn{val{\_}func}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*)(*@\HLJLni{2}@*)(*@\HLJLp{{\}}}@*)
+    (*@\HLJLn{pol{\_}func}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*)(*@\HLJLni{2}@*)(*@\HLJLp{{\}}}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{structure}@*) (*@\HLJLcs{that}@*) (*@\HLJLcs{holds}@*) (*@\HLJLcs{simulation}@*) (*@\HLJLcs{outcomes}@*)
+
+(*@\HLJLk{mutable}@*) (*@\HLJLk{struct}@*) (*@\HLJLn{Simulations}@*)
+    (*@\HLJLn{a{\_}sim}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*)(*@\HLJLni{2}@*)(*@\HLJLp{{\}}}@*)
+    (*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*)(*@\HLJLni{2}@*)(*@\HLJLp{{\}}}@*)
+    (*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*)(*@\HLJLni{2}@*)(*@\HLJLp{{\}}}@*)
+    (*@\HLJLn{R{\_}exports{\_}sim}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*)(*@\HLJLni{2}@*)(*@\HLJLp{{\}}}@*)
+    (*@\HLJLn{moments{\_}sim}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{{\}}}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{function}@*) (*@\HLJLcs{for}@*) (*@\HLJLcs{initializing}@*) (*@\HLJLcs{model}@*) (*@\HLJLcs{primitives}@*) (*@\HLJLcs{and}@*) (*@\HLJLcs{results}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{Initialize}@*)(*@\HLJLp{()}@*)
+    (*@\HLJLn{prim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Primitives}@*)(*@\HLJLp{()}@*)
+    (*@\HLJLn{\ensuremath{\Pi}{\_}a}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{tauchen{\_}method}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{n{\_}a}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{\ensuremath{\rho}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{\ensuremath{\sigma}}@*)(*@\HLJLp{,}@*) (*@\HLJLnf{log}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{a\ensuremath{\bar}}@*)(*@\HLJLp{))[}@*)(*@\HLJLni{1}@*)(*@\HLJLp{]}@*)
+    (*@\HLJLn{a{\_}grid}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{exp}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLnf{tauchen{\_}method}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{n{\_}a}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{\ensuremath{\rho}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{\ensuremath{\sigma}}@*)(*@\HLJLp{,}@*) (*@\HLJLnf{log}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{a\ensuremath{\bar}}@*)(*@\HLJLp{))[}@*)(*@\HLJLni{2}@*)(*@\HLJLp{])}@*)
+    (*@\HLJLn{val{\_}func}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLni{2}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{n{\_}a}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{pol{\_}func}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*) (*@\HLJLni{2}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{n{\_}a}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{a{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{T}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{drop}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{pol{\_}func{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{T}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{drop}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{R{\_}domestic{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{T}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{drop}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{R{\_}exports{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{T}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{drop}@*)(*@\HLJLp{,}@*) (*@\HLJLn{prim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{moments{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLni{5}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{res}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Results}@*)(*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\Pi}{\_}a}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}grid}@*)(*@\HLJLp{,}@*) (*@\HLJLn{val{\_}func}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pol{\_}func}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Simulations}@*)(*@\HLJLp{(}@*)(*@\HLJLn{a{\_}sim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{R{\_}exports{\_}sim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{moments{\_}sim}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{prim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLp{,}@*) (*@\HLJLn{sim}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{discretize}@*) (*@\HLJLcs{AR(1)}@*) (*@\HLJLcs{process}@*) (*@\HLJLcs{using}@*) (*@\HLJLcs{Tauchen{\textquotesingle}s}@*) (*@\HLJLcs{method}@*) (*@\HLJLcs{(instead}@*) (*@\HLJLcs{of}@*) (*@\HLJLcs{manually}@*) (*@\HLJLcs{constructing}@*) (*@\HLJLcs{it,}@*) (*@\HLJLcs{we}@*) (*@\HLJLcs{can}@*) (*@\HLJLcs{use}@*) (*@\HLJLcs{QuantEcon.tauchen()}@*) (*@\HLJLcs{function)}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{tauchen{\_}method}@*)(*@\HLJLp{(}@*)(*@\HLJLn{N}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\rho}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\sigma}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\mu}}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLn{dist}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Normal}@*)(*@\HLJLp{(}@*)(*@\HLJLni{0}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\sigma}}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{\ensuremath{\sigma}{\_}y}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{sqrt}@*)(*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\sigma}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLni{2}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\rho}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLni{2}@*)(*@\HLJLp{))}@*)
+
+    (*@\HLJLn{y{\_}bar}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{3}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{\ensuremath{\sigma}{\_}y}@*) (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{grid}@*) (*@\HLJLcs{ranges}@*) (*@\HLJLcs{3}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{standard}@*) (*@\HLJLcs{deviation}@*) (*@\HLJLcs{of}@*) (*@\HLJLcs{y}@*)
+    (*@\HLJLn{y}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{collect}@*)(*@\HLJLp{(}@*)(*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLoB{-}@*)(*@\HLJLn{y{\_}bar}@*)(*@\HLJLp{,}@*) (*@\HLJLn{stop}@*)(*@\HLJLoB{=}@*)(*@\HLJLn{y{\_}bar}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLn{N}@*)(*@\HLJLp{))}@*)
+    (*@\HLJLn{s}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLni{2}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLni{1}@*)(*@\HLJLp{]}@*)
+
+    (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{Get}@*) (*@\HLJLcs{transition}@*) (*@\HLJLcs{probabilities}@*)
+    (*@\HLJLn{\ensuremath{\Pi}}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{N}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLk{for}@*) (*@\HLJLn{row{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{N}@*)
+        (*@\HLJLn{\ensuremath{\Pi}}@*)(*@\HLJLp{[}@*)(*@\HLJLn{row{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLni{1}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{cdf}@*)(*@\HLJLp{(}@*)(*@\HLJLn{dist}@*)(*@\HLJLp{,}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLni{1}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\rho}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLn{row{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{s}@*) (*@\HLJLoB{/}@*) (*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLn{\ensuremath{\Pi}}@*)(*@\HLJLp{[}@*)(*@\HLJLn{row{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLnf{cdf}@*)(*@\HLJLp{(}@*)(*@\HLJLn{dist}@*)(*@\HLJLp{,}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLn{N}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\rho}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLn{row{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{s}@*) (*@\HLJLoB{/}@*) (*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLk{for}@*) (*@\HLJLn{col{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{2}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{N}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)
+            (*@\HLJLn{\ensuremath{\Pi}}@*)(*@\HLJLp{[}@*)(*@\HLJLn{row{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{col{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{cdf}@*)(*@\HLJLp{(}@*)(*@\HLJLn{dist}@*)(*@\HLJLp{,}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLn{col{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\rho}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLn{row{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{s}@*) (*@\HLJLoB{/}@*) (*@\HLJLni{2}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{-}@*) (*@\HLJLnf{cdf}@*)(*@\HLJLp{(}@*)(*@\HLJLn{dist}@*)(*@\HLJLp{,}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLn{col{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\rho}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{y}@*)(*@\HLJLp{[}@*)(*@\HLJLn{row{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{s}@*) (*@\HLJLoB{/}@*) (*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLk{end}@*)
+    (*@\HLJLk{end}@*)
+
+    (*@\HLJLn{\ensuremath{\Pi}}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{\ensuremath{\Pi}}@*) (*@\HLJLoB{./}@*) (*@\HLJLnf{sum}@*)(*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\Pi}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{dims}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{y}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{y}@*) (*@\HLJLoB{.+}@*) (*@\HLJLn{\ensuremath{\mu}}@*)
+
+    (*@\HLJLn{\ensuremath{\Pi}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{y}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{fixed}@*) (*@\HLJLcs{cost}@*) (*@\HLJLcs{depending}@*) (*@\HLJLcs{on}@*) (*@\HLJLcs{X}@*) (*@\HLJLcs{and}@*) (*@\HLJLcs{X{\_}prime}@*) (*@\HLJLcs{values.}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{fixed{\_}cost}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Primitives}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Results}@*)(*@\HLJLp{,}@*) (*@\HLJLn{X}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{X{\_}prime}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{f\ensuremath{\_0}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{f\ensuremath{\_1}}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{prim}@*)
+
+    (*@\HLJLk{if}@*) (*@\HLJLn{X{\_}prime}@*) (*@\HLJLoB{==}@*) (*@\HLJLni{0}@*)
+        (*@\HLJLn{f}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{0.0}@*)
+    (*@\HLJLk{elseif}@*) (*@\HLJLn{X{\_}prime}@*) (*@\HLJLoB{==}@*) (*@\HLJLni{1}@*)
+        (*@\HLJLk{if}@*) (*@\HLJLn{X}@*) (*@\HLJLoB{==}@*) (*@\HLJLni{0}@*)
+            (*@\HLJLn{f}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{f\ensuremath{\_0}}@*)
+        (*@\HLJLk{elseif}@*) (*@\HLJLn{X}@*) (*@\HLJLoB{==}@*) (*@\HLJLni{1}@*)
+            (*@\HLJLn{f}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{f\ensuremath{\_1}}@*)
+        (*@\HLJLk{end}@*)
+    (*@\HLJLk{end}@*)
+
+    (*@\HLJLn{f}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{calculate}@*) (*@\HLJLcs{the}@*) (*@\HLJLcs{profit}@*) (*@\HLJLcs{function.}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{profit{\_}function}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Primitives}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Results}@*)(*@\HLJLp{,}@*) (*@\HLJLn{X}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}value}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{\ensuremath{\theta}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{w}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\tau}}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{prim}@*)
+
+    (*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{-}@*) (*@\HLJLni{1}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\theta}}@*)
+    (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{K}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{(a{\_}value/((\ensuremath{\theta}-1)*(\ensuremath{\xi}-1))){\textasciicircum}((\ensuremath{\theta}-1)/\ensuremath{\theta})}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{(1}@*) (*@\HLJLcs{+}@*) (*@\HLJLcs{X}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{(\ensuremath{\theta}*\ensuremath{\xi}}@*) (*@\HLJLcs{-}@*) (*@\HLJLcs{\ensuremath{\theta}}@*) (*@\HLJLcs{-}@*) (*@\HLJLcs{\ensuremath{\xi})/\ensuremath{\xi})}@*)
+    (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{K}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{((a{\_}value/((\ensuremath{\theta}-1)*(\ensuremath{\xi}-1))){\textasciicircum}((\ensuremath{\theta}-1)/\ensuremath{\theta})*(1-X/\ensuremath{\xi})}@*) (*@\HLJLcs{+}@*) (*@\HLJLcs{X/\ensuremath{\xi}}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{(a{\_}value/((\ensuremath{\theta}-1)*(\ensuremath{\xi}-1))){\textasciicircum}(-1/\ensuremath{\theta})*a{\_}value)}@*)
+    (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{K}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{a{\_}value/(1}@*) (*@\HLJLcs{+}@*) (*@\HLJLcs{\ensuremath{\xi}}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{\ensuremath{\tau}{\textasciicircum}(-\ensuremath{\theta}))}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{(1}@*) (*@\HLJLcs{+}@*) (*@\HLJLcs{X}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{\ensuremath{\tau}{\textasciicircum}(-\ensuremath{\theta}))}@*)
+    (*@\HLJLn{K}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{+}@*) (*@\HLJLni{1}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{a{\_}value}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{X}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\tau}}@*) (*@\HLJLoB{*}@*) (*@\HLJLp{((}@*)(*@\HLJLn{a{\_}value}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{+}@*) (*@\HLJLni{1}@*)(*@\HLJLp{))}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\alpha}}@*)
+    (*@\HLJLn{\ensuremath{\Pi}}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\alpha}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{K}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\alpha}}@*)(*@\HLJLp{))}@*) (*@\HLJLoB{*}@*) (*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{w}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\alpha}}@*)(*@\HLJLp{))}@*)
+
+    (*@\HLJLn{\ensuremath{\Pi}}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{calculate}@*) (*@\HLJLcs{the}@*) (*@\HLJLcs{profit}@*) (*@\HLJLcs{of}@*) (*@\HLJLcs{each}@*) (*@\HLJLcs{country.}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{Bellman}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Primitives}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Results}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{\ensuremath{\beta}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{n{\_}a}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{prim}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{val{\_}func}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pol{\_}func}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\Pi}{\_}a}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}grid}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{res}@*)
+
+    (*@\HLJLn{val{\_}func{\_}new}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLni{2}@*)(*@\HLJLp{,}@*) (*@\HLJLn{n{\_}a}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{pol{\_}func{\_}new}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*) (*@\HLJLni{2}@*)(*@\HLJLp{,}@*) (*@\HLJLn{n{\_}a}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLk{for}@*) (*@\HLJLn{a{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{n{\_}a}@*)
+        (*@\HLJLn{\ensuremath{\Pi}{\_}0}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{profit{\_}function}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLp{,}@*) (*@\HLJLni{0}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}grid}@*)(*@\HLJLp{[}@*)(*@\HLJLn{a{\_}index}@*)(*@\HLJLp{])}@*)
+        (*@\HLJLn{\ensuremath{\Pi}{\_}1}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{profit{\_}function}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLp{,}@*) (*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}grid}@*)(*@\HLJLp{[}@*)(*@\HLJLn{a{\_}index}@*)(*@\HLJLp{])}@*)
+
+        (*@\HLJLk{for}@*) (*@\HLJLn{X{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLni{2}@*)
+            (*@\HLJLn{val{\_}func{\_}new{\_}ex}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{\ensuremath{\Pi}{\_}1}@*) (*@\HLJLoB{-}@*) (*@\HLJLnf{fixed{\_}cost}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLp{,}@*) (*@\HLJLn{X{\_}index}@*) (*@\HLJLoB{-}@*) (*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLni{1}@*)(*@\HLJLp{)}@*)
+            (*@\HLJLn{val{\_}func{\_}new{\_}no{\_}ex}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{\ensuremath{\Pi}{\_}0}@*)
+            (*@\HLJLk{for}@*) (*@\HLJLn{ap{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{n{\_}a}@*)
+                (*@\HLJLn{val{\_}func{\_}new{\_}ex}@*) (*@\HLJLoB{+=}@*) (*@\HLJLn{\ensuremath{\beta}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{\ensuremath{\Pi}{\_}a}@*)(*@\HLJLp{[}@*)(*@\HLJLn{a{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{ap{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{val{\_}func}@*)(*@\HLJLp{[}@*)(*@\HLJLni{2}@*)(*@\HLJLp{,}@*) (*@\HLJLn{ap{\_}index}@*)(*@\HLJLp{]}@*)
+                (*@\HLJLn{val{\_}func{\_}new{\_}no{\_}ex}@*) (*@\HLJLoB{+=}@*) (*@\HLJLn{\ensuremath{\beta}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{\ensuremath{\Pi}{\_}a}@*)(*@\HLJLp{[}@*)(*@\HLJLn{a{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{ap{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{val{\_}func}@*)(*@\HLJLp{[}@*)(*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{ap{\_}index}@*)(*@\HLJLp{]}@*)
+            (*@\HLJLk{end}@*)
+
+            (*@\HLJLk{if}@*) (*@\HLJLn{val{\_}func{\_}new{\_}ex}@*) (*@\HLJLoB{>}@*) (*@\HLJLn{val{\_}func{\_}new{\_}no{\_}ex}@*)
+                (*@\HLJLn{pol{\_}func{\_}new}@*)(*@\HLJLp{[}@*)(*@\HLJLn{X{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)
+                (*@\HLJLn{val{\_}func{\_}new}@*)(*@\HLJLp{[}@*)(*@\HLJLn{X{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{val{\_}func{\_}new{\_}ex}@*)
+            (*@\HLJLk{else}@*)
+                (*@\HLJLn{pol{\_}func{\_}new}@*)(*@\HLJLp{[}@*)(*@\HLJLn{X{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{0}@*)
+                (*@\HLJLn{val{\_}func{\_}new}@*)(*@\HLJLp{[}@*)(*@\HLJLn{X{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{val{\_}func{\_}new{\_}no{\_}ex}@*)
+            (*@\HLJLk{end}@*)
+        (*@\HLJLk{end}@*)
+    (*@\HLJLk{end}@*)
+
+    (*@\HLJLn{val{\_}func{\_}new}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pol{\_}func{\_}new}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{define}@*) (*@\HLJLcs{find{\_}wage}@*) (*@\HLJLcs{function}@*) (*@\HLJLcs{to}@*) (*@\HLJLcs{minimize}@*) (*@\HLJLcs{the}@*) (*@\HLJLcs{excess}@*) (*@\HLJLcs{trade}@*) (*@\HLJLcs{flow}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{solve{\_}model}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Primitives}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Results}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{tol}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{1e-4}@*)
+    (*@\HLJLn{err}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{1.0}@*)
+    (*@\HLJLn{n}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)
+
+    (*@\HLJLk{while}@*) (*@\HLJLkc{true}@*)
+        (*@\HLJLn{val{\_}func{\_}new}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pol{\_}func{\_}new}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Bellman}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLn{err}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{maximum}@*)(*@\HLJLp{(}@*)(*@\HLJLn{abs}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{res}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{val{\_}func}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{val{\_}func{\_}new}@*)(*@\HLJLp{))}@*)
+        (*@\HLJLn{res}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{val{\_}func}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{val{\_}func{\_}new}@*)
+        (*@\HLJLn{res}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{pol{\_}func}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{pol{\_}func{\_}new}@*)
+        (*@\HLJLnf{println}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"{}*****}@*) (*@\HLJLs{"{}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{n}@*)(*@\HLJLp{,}@*) (*@\HLJLs{"{}th}@*) (*@\HLJLs{iteration}@*) (*@\HLJLs{*****"{}}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLnd{@printf}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"{}Absolute}@*) (*@\HLJLs{difference:}@*) (*@\HLJLs{{\%}0.5f}@*) (*@\HLJLse{{\textbackslash}n}@*)(*@\HLJLs{"{}}@*)(*@\HLJLp{,}@*) (*@\HLJLnf{float}@*)(*@\HLJLp{(}@*)(*@\HLJLn{err}@*)(*@\HLJLp{))}@*)
+        (*@\HLJLnf{println}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"{}***************************"{}}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLn{n}@*) (*@\HLJLoB{+=}@*) (*@\HLJLni{1}@*)
+        (*@\HLJLk{if}@*) (*@\HLJLn{err}@*) (*@\HLJLoB{<}@*) (*@\HLJLn{tol}@*)
+            (*@\HLJLk{break}@*)
+        (*@\HLJLk{end}@*)
+    (*@\HLJLk{end}@*)
+    (*@\HLJLnf{println}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"{}Value}@*) (*@\HLJLs{function}@*) (*@\HLJLs{converged}@*) (*@\HLJLs{after}@*) (*@\HLJLs{"{}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{n}@*)(*@\HLJLp{,}@*) (*@\HLJLs{"{}}@*) (*@\HLJLs{iterations."{}}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnf{println}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"{}}@*) (*@\HLJLs{"{}}@*)(*@\HLJLp{)}@*)
+
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{get}@*) (*@\HLJLcs{index}@*) (*@\HLJLcs{from}@*) (*@\HLJLcs{a}@*) (*@\HLJLcs{grid}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{get{\_}index}@*)(*@\HLJLp{(}@*)(*@\HLJLn{val}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{grid}@*)(*@\HLJLoB{::}@*)(*@\HLJLnf{Array}@*)(*@\HLJLp{{\{}}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{,}@*)(*@\HLJLni{1}@*)(*@\HLJLp{{\}})}@*)
+
+    (*@\HLJLn{interp}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{interpolate}@*)(*@\HLJLp{(}@*)(*@\HLJLn{grid}@*)(*@\HLJLp{,}@*) (*@\HLJLnf{BSpline}@*)(*@\HLJLp{(}@*)(*@\HLJLnf{Linear}@*)(*@\HLJLp{()))}@*)
+    (*@\HLJLnf{find{\_}index}@*)(*@\HLJLp{(}@*)(*@\HLJLn{k}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{abs}@*)(*@\HLJLp{(}@*)(*@\HLJLnf{interp}@*)(*@\HLJLp{(}@*)(*@\HLJLn{k}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{val}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{index}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{optimize}@*)(*@\HLJLp{(}@*)(*@\HLJLn{find{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLnfB{1.0}@*)(*@\HLJLp{,}@*) (*@\HLJLnf{length}@*)(*@\HLJLp{(}@*)(*@\HLJLn{grid}@*)(*@\HLJLp{))}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{minimizer}@*)
+    (*@\HLJLn{index}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{round}@*)(*@\HLJLp{(}@*)(*@\HLJLn{Int}@*)(*@\HLJLp{,}@*) (*@\HLJLn{index}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLn{index}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{simulate}@*) (*@\HLJLcs{productivty}@*) (*@\HLJLcs{shock}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{simulate{\_}a}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Primitives}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Results}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{a\ensuremath{\bar}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\rho}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\sigma}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{,}@*) (*@\HLJLn{drop}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{prim}@*)
+
+    (*@\HLJLn{Random}@*)(*@\HLJLoB{.}@*)(*@\HLJLnf{seed!}@*)(*@\HLJLp{(}@*)(*@\HLJLni{12341234}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{log{\_}a{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLk{for}@*) (*@\HLJLn{N{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{N}@*)
+        (*@\HLJLn{\ensuremath{\eta}}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{randn}@*)(*@\HLJLp{()}@*) (*@\HLJLoB{*}@*) (*@\HLJLnf{sqrt}@*)(*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\sigma}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLni{2}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\rho}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLni{2}@*)(*@\HLJLp{))}@*)
+        (*@\HLJLn{log{\_}a{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{\ensuremath{\eta}}@*)
+        (*@\HLJLk{for}@*) (*@\HLJLn{T{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{2}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)
+            (*@\HLJLn{log{\_}a{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\rho}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{*}@*) (*@\HLJLnf{log}@*)(*@\HLJLp{(}@*)(*@\HLJLn{a\ensuremath{\bar}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{\ensuremath{\rho}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{log{\_}a{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{+}@*) (*@\HLJLnf{randn}@*)(*@\HLJLp{()}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{\ensuremath{\sigma}}@*)
+        (*@\HLJLk{end}@*)
+    (*@\HLJLk{end}@*)
+    (*@\HLJLn{a{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{exp}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{log{\_}a{\_}sim}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLn{a{\_}sim}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{calculate}@*) (*@\HLJLcs{the}@*) (*@\HLJLcs{revenue}@*) (*@\HLJLcs{function:}@*) (*@\HLJLcs{something}@*) (*@\HLJLcs{is}@*) (*@\HLJLcs{wrong.}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{revenue{\_}function}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Primitives}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Results}@*)(*@\HLJLp{,}@*) (*@\HLJLn{X}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}value}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Float64}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{\ensuremath{\theta}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{w}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\tau}}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{prim}@*)
+
+    (*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{-}@*) (*@\HLJLni{1}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\theta}}@*)
+    (*@\HLJLn{K}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{+}@*) (*@\HLJLni{1}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{a{\_}value}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{X}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\tau}}@*) (*@\HLJLoB{*}@*) (*@\HLJLp{((}@*)(*@\HLJLn{a{\_}value}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{+}@*) (*@\HLJLni{1}@*)(*@\HLJLp{))}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\alpha}}@*)
+
+    (*@\HLJLn{Y}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{K}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\alpha}}@*)(*@\HLJLp{))}@*) (*@\HLJLoB{*}@*) (*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{w}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLp{(}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLni{1}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{\ensuremath{\alpha}}@*)(*@\HLJLp{))}@*)
+
+    (*@\HLJLn{R{\_}domestic}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{+}@*) (*@\HLJLni{1}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{a{\_}value}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{Y}@*)
+    (*@\HLJLn{R{\_}exports}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{X}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\tau}}@*) (*@\HLJLoB{*}@*) (*@\HLJLp{((}@*)(*@\HLJLn{a{\_}value}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{((}@*)(*@\HLJLn{\ensuremath{\tau}}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{\ensuremath{\xi}}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{+}@*) (*@\HLJLni{1}@*)(*@\HLJLp{))}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLn{\ensuremath{\alpha}}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{Y}@*)
+
+    (*@\HLJLn{R{\_}domestic}@*)(*@\HLJLp{,}@*) (*@\HLJLn{R{\_}exports}@*)
+
+(*@\HLJLk{end}@*)
+
+
+(*@\HLJLcs{{\#}{\#}}@*) (*@\HLJLcs{get}@*) (*@\HLJLcs{policy}@*) (*@\HLJLcs{function,}@*) (*@\HLJLcs{domestic}@*) (*@\HLJLcs{and}@*) (*@\HLJLcs{export}@*) (*@\HLJLcs{sales}@*) (*@\HLJLcs{revenues}@*) (*@\HLJLcs{using}@*) (*@\HLJLcs{simulated}@*) (*@\HLJLcs{productivity}@*) (*@\HLJLcs{a}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{simulate{\_}pol{\_}rev}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Primitives}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Results}@*)(*@\HLJLp{,}@*) (*@\HLJLn{sim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Simulations}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{N}@*)(*@\HLJLp{,}@*) (*@\HLJLn{T}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{prim}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{pol{\_}func}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}grid}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{res}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{a{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{sim}@*)
+
+    (*@\HLJLn{pol{\_}func{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{Int64}@*)(*@\HLJLp{,}@*) (*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{R{\_}domestic{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{R{\_}exports{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLk{for}@*) (*@\HLJLn{N{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{N}@*)
+        (*@\HLJLk{for}@*) (*@\HLJLn{T{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)
+            (*@\HLJLn{a{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{get{\_}index}@*)(*@\HLJLp{(}@*)(*@\HLJLn{a{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{],}@*) (*@\HLJLn{a{\_}grid}@*)(*@\HLJLp{)}@*)
+            (*@\HLJLn{a{\_}value}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{a{\_}grid}@*)(*@\HLJLp{[}@*)(*@\HLJLn{a{\_}index}@*)(*@\HLJLp{]}@*)
+            (*@\HLJLk{if}@*) (*@\HLJLn{T{\_}index}@*) (*@\HLJLoB{==}@*) (*@\HLJLni{1}@*)
+                (*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{0}@*)
+            (*@\HLJLk{else}@*)
+                (*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{pol{\_}func}@*)(*@\HLJLp{[}@*)(*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{a{\_}index}@*)(*@\HLJLp{]}@*)
+            (*@\HLJLk{end}@*)
+            (*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{],}@*) (*@\HLJLn{R{\_}exports{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{revenue{\_}function}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{],}@*) (*@\HLJLn{a{\_}value}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLk{end}@*)
+    (*@\HLJLk{end}@*)
+
+    (*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{R{\_}exports{\_}sim}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*)
+
+(*@\HLJLk{function}@*) (*@\HLJLnf{simulation}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Primitives}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Results}@*)(*@\HLJLp{,}@*) (*@\HLJLn{sim}@*)(*@\HLJLoB{::}@*)(*@\HLJLn{Simulations}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnd{@unpack}@*) (*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{,}@*) (*@\HLJLn{drop}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{prim}@*)
+
+    (*@\HLJLn{sim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{a{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{simulate{\_}a}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{sim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{sim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{sim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{R{\_}exports{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{simulate{\_}pol{\_}rev}@*)(*@\HLJLp{(}@*)(*@\HLJLn{prim}@*)(*@\HLJLp{,}@*) (*@\HLJLn{res}@*)(*@\HLJLp{,}@*) (*@\HLJLn{sim}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLn{X}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{sim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLoB{:}@*)(*@\HLJLp{]}@*)
+    (*@\HLJLn{pol{\_}func{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{sim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{pol{\_}func{\_}sim}@*)
+    (*@\HLJLn{export{\_}part{\_}rate}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{mean}@*)(*@\HLJLp{(}@*)(*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{drop}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLoB{:}@*)(*@\HLJLp{])}@*)
+
+    (*@\HLJLn{starterrate}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{T}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{stopperrate}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{T}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLk{for}@*) (*@\HLJLn{T{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{2}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)
+        (*@\HLJLn{total{\_}nonexperter}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{N}@*) (*@\HLJLoB{-}@*) (*@\HLJLnf{sum}@*)(*@\HLJLp{(}@*)(*@\HLJLn{X}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLn{X{\_}prime}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{pol{\_}func{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLoB{:}@*)(*@\HLJLp{]}@*)
+        (*@\HLJLn{starter}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{0}@*)
+        (*@\HLJLn{stopper}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{0}@*)
+
+        (*@\HLJLk{for}@*) (*@\HLJLn{N{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{N}@*)
+            (*@\HLJLk{if}@*) (*@\HLJLn{X}@*)(*@\HLJLp{[}@*)(*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{==}@*) (*@\HLJLni{0}@*)
+                (*@\HLJLk{if}@*) (*@\HLJLn{X{\_}prime}@*)(*@\HLJLp{[}@*)(*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{==}@*) (*@\HLJLni{1}@*)
+                    (*@\HLJLn{starter}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{starter}@*) (*@\HLJLoB{+}@*) (*@\HLJLni{1}@*)
+                (*@\HLJLk{end}@*)
+            (*@\HLJLk{else}@*)
+                (*@\HLJLk{if}@*) (*@\HLJLn{X{\_}prime}@*)(*@\HLJLp{[}@*)(*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{==}@*) (*@\HLJLni{0}@*)
+                    (*@\HLJLn{stopper}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{stopper}@*) (*@\HLJLoB{+}@*) (*@\HLJLni{1}@*)
+                (*@\HLJLk{end}@*)
+            (*@\HLJLk{end}@*)
+        (*@\HLJLk{end}@*)
+        (*@\HLJLn{starterrate}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{starter}@*) (*@\HLJLoB{/}@*) (*@\HLJLn{total{\_}nonexperter}@*)
+        (*@\HLJLn{stopperrate}@*)(*@\HLJLp{[}@*)(*@\HLJLn{T{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{stopper}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLn{N}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{total{\_}nonexperter}@*)(*@\HLJLp{)}@*)
+        (*@\HLJLn{X}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{X{\_}prime}@*)
+    (*@\HLJLk{end}@*)
+
+    (*@\HLJLn{avg{\_}starterrate}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{mean}@*)(*@\HLJLp{(}@*)(*@\HLJLn{starterrate}@*)(*@\HLJLp{[}@*)(*@\HLJLn{drop}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)(*@\HLJLp{])}@*)
+    (*@\HLJLn{avg{\_}stopperrate}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{mean}@*)(*@\HLJLp{(}@*)(*@\HLJLn{stopperrate}@*)(*@\HLJLp{[}@*)(*@\HLJLn{drop}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)(*@\HLJLp{])}@*)
+    (*@\HLJLnf{plot}@*)(*@\HLJLp{([}@*)(*@\HLJLn{starterrate}@*)(*@\HLJLp{[}@*)(*@\HLJLn{drop}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)(*@\HLJLp{],}@*) (*@\HLJLn{avg{\_}starterrate}@*) (*@\HLJLoB{*}@*) (*@\HLJLnf{ones}@*)(*@\HLJLp{(}@*)(*@\HLJLn{T}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{drop}@*)(*@\HLJLp{)],}@*) (*@\HLJLn{labels}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{[}@*)(*@\HLJLs{"{}Starter}@*) (*@\HLJLs{Rate"{}}@*) (*@\HLJLs{"{}LR}@*) (*@\HLJLs{Average"{}}@*)(*@\HLJLp{],}@*) (*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topright}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLnf{plot}@*)(*@\HLJLp{([}@*)(*@\HLJLn{stopperrate}@*)(*@\HLJLp{[}@*)(*@\HLJLn{drop}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)(*@\HLJLp{],}@*) (*@\HLJLn{avg{\_}stopperrate}@*) (*@\HLJLoB{*}@*) (*@\HLJLnf{ones}@*)(*@\HLJLp{(}@*)(*@\HLJLn{T}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{drop}@*)(*@\HLJLp{)],}@*) (*@\HLJLn{labels}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{[}@*)(*@\HLJLs{"{}Stopper}@*) (*@\HLJLs{Rate"{}}@*) (*@\HLJLs{"{}LR}@*) (*@\HLJLs{Average"{}}@*)(*@\HLJLp{],}@*) (*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topright}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLn{R{\_}domestic{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{sim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{drop}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLoB{:}@*)(*@\HLJLp{]}@*)
+    (*@\HLJLn{R{\_}exports{\_}sim}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{sim}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{R{\_}exports{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{drop}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{T}@*)(*@\HLJLp{,}@*) (*@\HLJLoB{:}@*)(*@\HLJLp{]}@*)
+    (*@\HLJLn{Y}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{T}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{drop}@*)
+
+    (*@\HLJLn{exportsales}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{Y}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLk{for}@*) (*@\HLJLn{N{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{N}@*)
+        (*@\HLJLk{for}@*) (*@\HLJLn{Y{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{Y}@*)
+            (*@\HLJLn{exportsales}@*)(*@\HLJLp{[}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{R{\_}exports{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{R{\_}exports{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{])}@*)
+        (*@\HLJLk{end}@*)
+    (*@\HLJLk{end}@*)
+
+    (*@\HLJLn{exporter}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{(}@*)(*@\HLJLn{R{\_}exports{\_}sim}@*) (*@\HLJLoB{.>}@*) (*@\HLJLni{0}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{export{\_}intensity}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{sum}@*)(*@\HLJLp{(}@*)(*@\HLJLn{exportsales}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{/}@*) (*@\HLJLp{(}@*)(*@\HLJLnf{sum}@*)(*@\HLJLp{(}@*)(*@\HLJLn{exporter}@*)(*@\HLJLp{))}@*)
+
+    (*@\HLJLn{y}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{N}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{Y}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{y{\_}lag}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{N}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{Y}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{firmno}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{N}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{Y}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{year}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{zeros}@*)(*@\HLJLp{(}@*)(*@\HLJLn{N}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{Y}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLk{for}@*) (*@\HLJLn{N{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{N}@*)
+        (*@\HLJLk{for}@*) (*@\HLJLn{Y{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{Y}@*)
+            (*@\HLJLn{y}@*)(*@\HLJLp{[(}@*)(*@\HLJLn{N{\_}index}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{Y}@*)(*@\HLJLoB{+}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*)
+            (*@\HLJLn{firmno}@*)(*@\HLJLp{[(}@*)(*@\HLJLn{N{\_}index}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{Y}@*)(*@\HLJLoB{+}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{N{\_}index}@*)
+            (*@\HLJLn{year}@*)(*@\HLJLp{[(}@*)(*@\HLJLn{N{\_}index}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{Y}@*)(*@\HLJLoB{+}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{Y{\_}index}@*)
+        (*@\HLJLk{end}@*)
+        (*@\HLJLk{for}@*) (*@\HLJLn{Y{\_}index}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{2}@*)(*@\HLJLoB{:}@*)(*@\HLJLn{Y}@*)
+            (*@\HLJLn{y{\_}lag}@*)(*@\HLJLp{[(}@*)(*@\HLJLn{N{\_}index}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{Y}@*)(*@\HLJLoB{+}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{R{\_}domestic{\_}sim}@*)(*@\HLJLp{[}@*)(*@\HLJLn{Y{\_}index}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{N{\_}index}@*)(*@\HLJLp{]}@*)
+        (*@\HLJLk{end}@*)
+        (*@\HLJLn{y{\_}lag}@*)(*@\HLJLp{[(}@*)(*@\HLJLn{N{\_}index}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{Y}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{NaN}@*)
+    (*@\HLJLk{end}@*)
+
+    (*@\HLJLn{df}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{DataFrame}@*)(*@\HLJLp{(}@*)(*@\HLJLn{y{\_}lag}@*)(*@\HLJLoB{=}@*)(*@\HLJLn{y{\_}lag}@*)(*@\HLJLp{,}@*) (*@\HLJLn{y}@*)(*@\HLJLoB{=}@*)(*@\HLJLn{y}@*)(*@\HLJLp{,}@*) (*@\HLJLn{firmno}@*)(*@\HLJLoB{=}@*)(*@\HLJLn{firmno}@*)(*@\HLJLp{,}@*) (*@\HLJLn{year}@*)(*@\HLJLoB{=}@*)(*@\HLJLn{year}@*)(*@\HLJLp{)}@*)
+    (*@\HLJLn{df}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{filter}@*)(*@\HLJLp{(}@*)(*@\HLJLn{row}@*) (*@\HLJLoB{->}@*) (*@\HLJLoB{!}@*)(*@\HLJLnf{isnan}@*)(*@\HLJLp{(}@*)(*@\HLJLn{row}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{y{\_}lag}@*)(*@\HLJLp{),}@*) (*@\HLJLn{df}@*)(*@\HLJLp{)}@*)
+
+    (*@\HLJLn{\ensuremath{\gamma}}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{reg}@*)(*@\HLJLp{(}@*)(*@\HLJLn{df}@*)(*@\HLJLp{,}@*) (*@\HLJLnd{@formula}@*)(*@\HLJLp{(}@*)(*@\HLJLn{y}@*) (*@\HLJLoB{{\textasciitilde}}@*) (*@\HLJLn{y{\_}lag}@*) (*@\HLJLoB{+}@*) (*@\HLJLnf{fe}@*)(*@\HLJLp{(}@*)(*@\HLJLn{firmno}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{+}@*) (*@\HLJLnf{fe}@*)(*@\HLJLp{(}@*)(*@\HLJLn{year}@*)(*@\HLJLp{)))}@*)(*@\HLJLoB{.}@*)(*@\HLJLn{coef}@*)(*@\HLJLp{[}@*)(*@\HLJLni{1}@*)(*@\HLJLp{]}@*)
+
+    (*@\HLJLp{[}@*)(*@\HLJLn{export{\_}part{\_}rate}@*)(*@\HLJLp{,}@*) (*@\HLJLn{avg{\_}starterrate}@*)(*@\HLJLp{,}@*) (*@\HLJLn{avg{\_}stopperrate}@*)(*@\HLJLp{,}@*) (*@\HLJLn{export{\_}intensity}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\gamma}}@*)(*@\HLJLp{]}@*)
+(*@\HLJLk{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*)
+
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{function}@*) (*@\HLJLcs{m{\_}hat(f\ensuremath{\_0},}@*) (*@\HLJLcs{f\ensuremath{\_1},}@*) (*@\HLJLcs{C{\_}star,}@*) (*@\HLJLcs{\ensuremath{\sigma}{\_}\ensuremath{\epsilon},}@*) (*@\HLJLcs{\ensuremath{\rho}{\_}\ensuremath{\epsilon})}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{res.f\ensuremath{\_0}}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{f\ensuremath{\_0}}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{res.f\ensuremath{\_1}}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{f\ensuremath{\_1}}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{res.C{\_}star}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{C{\_}star}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{res.\ensuremath{\sigma}{\_}\ensuremath{\epsilon}}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{\ensuremath{\sigma}{\_}\ensuremath{\epsilon}}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{res.\ensuremath{\rho}{\_}\ensuremath{\epsilon}}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{\ensuremath{\rho}{\_}\ensuremath{\epsilon}}@*)
+
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{solve{\_}model(prim,}@*) (*@\HLJLcs{res)}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{simulate(prim,}@*) (*@\HLJLcs{res)}@*)
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{end}@*)
+
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{{\#}{\#}}@*)
+
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{function}@*) (*@\HLJLcs{MoM(prim::Primitives,}@*) (*@\HLJLcs{res::Results,}@*) (*@\HLJLcs{sim::Simulations)}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{@unpack}@*) (*@\HLJLcs{f\ensuremath{\_0},}@*) (*@\HLJLcs{f\ensuremath{\_1},}@*) (*@\HLJLcs{C{\_}star,}@*) (*@\HLJLcs{\ensuremath{\sigma}{\_}\ensuremath{\epsilon},}@*) (*@\HLJLcs{\ensuremath{\rho}{\_}\ensuremath{\epsilon}}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{res}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{@unpack}@*) (*@\HLJLcs{moments{\_}sim}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{sim}@*)
+
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{W}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{Matrix{\{}Float64{\}}(I,}@*) (*@\HLJLcs{5,}@*) (*@\HLJLcs{5)}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{J(f\ensuremath{\_0},}@*) (*@\HLJLcs{f\ensuremath{\_1},}@*) (*@\HLJLcs{C{\_}star,}@*) (*@\HLJLcs{\ensuremath{\sigma}{\_}\ensuremath{\epsilon},}@*) (*@\HLJLcs{\ensuremath{\rho}{\_}\ensuremath{\epsilon})}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{(prim.moments{\_}data}@*) (*@\HLJLcs{-}@*) (*@\HLJLcs{m{\_}hat(f\ensuremath{\_0},}@*) (*@\HLJLcs{f\ensuremath{\_1},}@*) (*@\HLJLcs{C{\_}star,}@*) (*@\HLJLcs{\ensuremath{\sigma}{\_}\ensuremath{\epsilon},}@*) (*@\HLJLcs{\ensuremath{\rho}{\_}\ensuremath{\epsilon})){\textquotesingle}}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{W}@*) (*@\HLJLcs{*}@*) (*@\HLJLcs{(prim.moments{\_}data}@*) (*@\HLJLcs{-}@*) (*@\HLJLcs{m{\_}hat(f\ensuremath{\_0},}@*) (*@\HLJLcs{f\ensuremath{\_1},}@*) (*@\HLJLcs{C{\_}star,}@*) (*@\HLJLcs{\ensuremath{\sigma}{\_}\ensuremath{\epsilon},}@*) (*@\HLJLcs{\ensuremath{\rho}{\_}\ensuremath{\epsilon}))}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{lower}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{[0.1,}@*) (*@\HLJLcs{0.0,}@*) (*@\HLJLcs{0.0,}@*) (*@\HLJLcs{0.0,}@*) (*@\HLJLcs{0.3]}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{upper}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{[1.0,}@*) (*@\HLJLcs{0.5,}@*) (*@\HLJLcs{0.6,}@*) (*@\HLJLcs{0.3,}@*) (*@\HLJLcs{1.0]}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{{\#}}@*) (*@\HLJLcs{b{\_}initial}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{(lower}@*) (*@\HLJLcs{+}@*) (*@\HLJLcs{upper)./2}@*)
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{b{\_}hat}@*) (*@\HLJLcs{=}@*) (*@\HLJLcs{optimize(b}@*) (*@\HLJLcs{->}@*) (*@\HLJLcs{J(b[1],}@*) (*@\HLJLcs{b[2],}@*) (*@\HLJLcs{b[3],}@*) (*@\HLJLcs{b[4],}@*) (*@\HLJLcs{b[5]),}@*) (*@\HLJLcs{lower,}@*) (*@\HLJLcs{upper,}@*) (*@\HLJLcs{[f\ensuremath{\_0},}@*) (*@\HLJLcs{f\ensuremath{\_1},}@*) (*@\HLJLcs{C{\_}star,}@*) (*@\HLJLcs{\ensuremath{\sigma}{\_}\ensuremath{\epsilon},}@*) (*@\HLJLcs{\ensuremath{\rho}{\_}\ensuremath{\epsilon}]).minimizer}@*)
+
+(*@\HLJLcs{{\#}}@*)     (*@\HLJLcs{b{\_}hat}@*)
+(*@\HLJLcs{{\#}}@*) (*@\HLJLcs{end}@*)
+
+(*@\HLJLcs{{\#}{\#}}@*)
+\end{lstlisting}
+
+\begin{lstlisting}
+Error: LoadError: UndefVarError: @with(*@{{\_}}@*)kw not defined
+in expression starting at C:(*@{{\textbackslash}}@*)Users(*@{{\textbackslash}}@*)hyoon76(*@{{\textbackslash}}@*)OneDrive - UW-Madison(*@{{\textbackslash}}@*)3.Wisconsi
+n(*@{{\textbackslash}}@*)2022 Fall(*@{{\textbackslash}}@*)Econ871(*@{{\textbackslash}}@*)Problem Sets(*@{{\textbackslash}}@*)PS1(*@{{\_}}@*)2021(*@{{\textbackslash}}@*)ps1(*@{{\_}}@*)2021(*@{{\_}}@*)Q2(*@{{\_}}@*)model(*@{{\_}}@*)hj.jl:9
+\end{lstlisting}
+
+
+
+\end{document}
