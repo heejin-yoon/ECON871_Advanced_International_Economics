@@ -1,3 +1,3 @@
-# Problem Sets
+# ECON871 Advanced International Economics
 
-## Practice codes for problem sets 2019 and 2021.
+### Lecture notes and problem set practices for ECON871.
