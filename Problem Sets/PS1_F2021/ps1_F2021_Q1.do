@@ -6,7 +6,7 @@
 clear all
 set more off
 
-global rt "C:/Users/hyoon76/OneDrive - UW-Madison/3.Wisconsin/2022 Fall/Econ871/Problem Sets/PS1_2021"
+global rt "C:/Users/hyoon76/OneDrive - UW-Madison/3.Wisconsin/2022 Fall/Econ871/Problem Sets/PS1_F2021"
 
 use "$rt/EAM_1992_2017_FINAL.dta", clear
 

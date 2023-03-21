@@ -10,7 +10,7 @@
     μ::Int64 = 1  # number of potential firms
     ρ::Float64 = 0.8  # elasticity of substitution σ = 1/(1-ρ)
     σ::Float64 = 1 / (1 - ρ)
-    α::Float64 = 0.4  # consumption share of differentiated goods
+    α::Float64 = 0.4  # conssumption share of differentiated goods
     x̲::Float64 = 1.0  # lower bound of productivity
     γ::Float64 = 6.5  # Pareto distribution parameter
     L::Float64 = 1.0  # Fixed labor supply of each country

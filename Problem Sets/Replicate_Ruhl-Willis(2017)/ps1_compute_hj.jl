@@ -1,8 +1,8 @@
 using Parameters, Random, Distributions, Plots, Printf, Interpolations, Optim, DataFrames, FixedEffectModels, LinearAlgebra
 import SpecialFunctions: erfc
 
-cd("C:/Users/hyoon76/OneDrive - UW-Madison/3.Wisconsin/2022 Fall/Econ871/Problem Sets/Ruhl-Willis(2017)/")
-include("Ruhl-Willis(2017)_hj.jl")
+cd("C:/Users/hyoon76/OneDrive - UW-Madison/3.Wisconsin/2022 Fall/Econ871/Problem Sets/PS1_2021/")
+include("ps1_model_hj.jl")
 
 ## Exercise b.
 

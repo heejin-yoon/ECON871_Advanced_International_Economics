@@ -1,7 +1,8 @@
 using Parameters, Plots, Printf, Distributions, DelimitedFiles, Random, Setfield, Optim, Weave
 
-cd("C:/Users/hyoon76/OneDrive - UW-Madison/3.Wisconsin/2022 Fall/Econ871/Problem Sets/PS1_2019/")
-include("ps1_2019_model_hj.jl")
+rt = pwd()
+
+include(rt * "/Problem Sets/PS1_F2019/ps1_F2019_model_hj.jl")
 
 ## Exercise 1-a.
 
@@ -21,7 +22,7 @@ println()
 println("*********** Exerise 1-a ***********")
 @printf("\nIt took %0.4f seconds to solve the trade equilibrium.\n", float(elapse_1a))
 @printf("\nWage of each country: [%0.4f; %0.4f; %0.4f]\n", float(w_1a[1]), float(w_1a[2]), float(w_1a[3]))
-@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1a[1,1]), float(Π_1a[2,1]), float(Π_1a[3,1]), float(Π_1a[1,2]), float(Π_1a[2,2]), float(Π_1a[3,2]), float(Π_1a[1,3]), float(Π_1a[2,3]), float(Π_1a[3,3]))
+@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1a[1, 1]), float(Π_1a[2, 1]), float(Π_1a[3, 1]), float(Π_1a[1, 2]), float(Π_1a[2, 2]), float(Π_1a[3, 2]), float(Π_1a[1, 3]), float(Π_1a[2, 3]), float(Π_1a[3, 3]))
 @printf("Welfare gain of each country: [%0.4f; %0.4f; %0.4f]\n\n", float(wg_1a[1]), float(wg_1a[2]), float(wg_1a[3]))
 println("***********************************\n")
 
@@ -50,7 +51,7 @@ println()
 println("*********** Exerise 1-b ***********")
 @printf("\nIt took %0.4f seconds to solve the trade equilibrium.\n", float(elapse_1b))
 @printf("\nWage of each country: [%0.4f; %0.4f; %0.4f]\n", float(w_1b[1]), float(w_1b[2]), float(w_1b[3]))
-@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1b[1,1]), float(Π_1b[2,1]), float(Π_1b[3,1]), float(Π_1b[1,2]), float(Π_1b[2,2]), float(Π_1b[3,2]), float(Π_1b[1,3]), float(Π_1b[2,3]), float(Π_1b[3,3]))
+@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1b[1, 1]), float(Π_1b[2, 1]), float(Π_1b[3, 1]), float(Π_1b[1, 2]), float(Π_1b[2, 2]), float(Π_1b[3, 2]), float(Π_1b[1, 3]), float(Π_1b[2, 3]), float(Π_1b[3, 3]))
 @printf("Welfare gain of each country: [%0.4f; %0.4f; %0.4f]\n\n", float(wg_1b[1]), float(wg_1b[2]), float(wg_1b[3]))
 println("***********************************\n")
 
@@ -78,7 +79,7 @@ println()
 println("*********** Exerise 1-c ***********")
 @printf("\nIt took %0.4f seconds to solve the trade equilibrium.\n", float(elapse_1c))
 @printf("\nWage of each country: [%0.4f; %0.4f; %0.4f]\n", float(w_1c[1]), float(w_1c[2]), float(w_1c[3]))
-@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1c[1,1]), float(Π_1c[2,1]), float(Π_1c[3,1]), float(Π_1c[1,2]), float(Π_1c[2,2]), float(Π_1c[3,2]), float(Π_1c[1,3]), float(Π_1c[2,3]), float(Π_1c[3,3]))
+@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1c[1, 1]), float(Π_1c[2, 1]), float(Π_1c[3, 1]), float(Π_1c[1, 2]), float(Π_1c[2, 2]), float(Π_1c[3, 2]), float(Π_1c[1, 3]), float(Π_1c[2, 3]), float(Π_1c[3, 3]))
 @printf("Welfare gain of each country: [%0.4f; %0.4f; %0.4f]\n\n", float(wg_1c[1]), float(wg_1c[2]), float(wg_1c[3]))
 println("***********************************\n")
 
@@ -106,7 +107,7 @@ println()
 println("*********** Exerise 1-d ***********")
 @printf("\nIt took %0.4f seconds to solve the trade equilibrium.\n", float(elapse_1d))
 @printf("\nWage of each country: [%0.4f; %0.4f; %0.4f]\n", float(w_1d[1]), float(w_1d[2]), float(w_1d[3]))
-@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1d[1,1]), float(Π_1d[2,1]), float(Π_1d[3,1]), float(Π_1d[1,2]), float(Π_1d[2,2]), float(Π_1d[3,2]), float(Π_1d[1,3]), float(Π_1d[2,3]), float(Π_1d[3,3]))
+@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1d[1, 1]), float(Π_1d[2, 1]), float(Π_1d[3, 1]), float(Π_1d[1, 2]), float(Π_1d[2, 2]), float(Π_1d[3, 2]), float(Π_1d[1, 3]), float(Π_1d[2, 3]), float(Π_1d[3, 3]))
 @printf("Welfare gain of each country: [%0.4f; %0.4f; %0.4f]\n\n", float(wg_1d[1]), float(wg_1d[2]), float(wg_1d[3]))
 println("***********************************\n")
 
@@ -135,7 +136,7 @@ println()
 println("*********** Exerise 1-e ***********")
 @printf("\nIt took %0.4f seconds to solve the trade equilibrium.\n", float(elapse_1e))
 @printf("\nWage of each country: [%0.4f; %0.4f; %0.4f]\n", float(w_1e[1]), float(w_1e[2]), float(w_1e[3]))
-@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1e[1,1]), float(Π_1e[2,1]), float(Π_1e[3,1]), float(Π_1e[1,2]), float(Π_1e[2,2]), float(Π_1e[3,2]), float(Π_1e[1,3]), float(Π_1e[2,3]), float(Π_1e[3,3]))
+@printf("\nBilateral Trade Share: \n   Country 1: [%0.4f; %0.4f; %0.4f] \n   Country 2: [%0.4f; %0.4f; %0.4f] \n   Country 3: [%0.4f; %0.4f; %0.4f] \n\n", float(Π_1e[1, 1]), float(Π_1e[2, 1]), float(Π_1e[3, 1]), float(Π_1e[1, 2]), float(Π_1e[2, 2]), float(Π_1e[3, 2]), float(Π_1e[1, 3]), float(Π_1e[2, 3]), float(Π_1e[3, 3]))
 @printf("Welfare gain of each country: [%0.4f; %0.4f; %0.4f]\n\n", float(wg_1e[1]), float(wg_1e[2]), float(wg_1e[3]))
 println("***********************************\n")
 
@@ -143,4 +144,4 @@ println("\nAll done!")
 
 ##
 
-weave("ps1_2019_model_hj.jl", doctype = "md2pdf", out_path = "weave")
+weave("ps1_2019_model_hj.jl", doctype="md2pdf", out_path="weave")

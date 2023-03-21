@@ -1,7 +1,8 @@
 using Parameters, Plots, Printf, DelimitedFiles, Setfield, QuadGK, Weave
 
-cd("C:/Users/hyoon76/OneDrive - UW-Madison/3.Wisconsin/2022 Fall/Econ871/Problem Sets/PS2_2019/")
-include("ps2_2019_model_hj.jl")
+rt = pwd()
+
+include(rt * "/Problem Sets/PS2_F2019/ps2_F2019_model_hj.jl")
 
 ## Exercise b.
 

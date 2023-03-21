@@ -1,7 +1,8 @@
 using Parameters, Random, Optim, Distributions, Plots, Printf, Interpolations, DataFrames, FixedEffectModels, Weave
 
-cd("C:/Users/hyoon76/OneDrive - UW-Madison/3.Wisconsin/2022 Fall/Econ871/Problem Sets/PS1_2021/")
-include("ps1_2021_Q2_model_hj.jl")
+rt = pwd()
+
+include(rt * "/Problem Sets/PS1_F2021/ps1_F2021_Q2_model_hj.jl")
 
 ## Q2. The sunk-cost model
 
@@ -31,4 +32,4 @@ plot(res.a_grid, [res.pol_func[2, :] res.pol_func[1, :]], xlims=(0, 3), ylims=(0
 
 println("\nAll done!")
 
-weave("ps1_2021_Q2_model_hj.jl", doctype = "md2pdf", out_path = "weave")
+weave("ps1_F2021_Q2_model_hj.jl", doctype = "md2pdf", out_path = "weave")
