@@ -1,4 +1,4 @@
-using Parameters, Random, Distributions, Plots, Printf, Interpolations, Optim, DataFrames, FixedEffectModels, LinearAlgebra
+using Parameters, Random, Distributions, Plots, Printf, Interpolations, Optim, DataFrames, FixedEffectModels, LinearAlgebra, FloatingTableView, .Threads
 import SpecialFunctions: erfc
 
 rt = pwd()
@@ -17,4 +17,5 @@ writedlm("data_lowestQ.csv", Iterators.flatten(([names(data_lowestQ)], eachrow(d
 
 ##
 
-sim.moments_sim = simulate(prim, res)
+initial = [.961, .047, .146, .116, .873]
+sunkcost = Minimize_Moment(prim, res, initial)
