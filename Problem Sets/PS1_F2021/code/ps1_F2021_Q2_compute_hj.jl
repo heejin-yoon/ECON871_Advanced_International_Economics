@@ -2,7 +2,7 @@ using Parameters, Random, Optim, Distributions, Plots, Printf, Interpolations, D
 
 rt = pwd()
 
-include(rt * "/Problem Sets/PS1_F2021/ps1_F2021_Q2_model_hj.jl")
+include(rt * "/Problem Sets/PS1_F2021/code/ps1_F2021_Q2_model_hj.jl")
 
 ## Q2. The sunk-cost model
 

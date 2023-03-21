@@ -2,7 +2,7 @@ using Parameters, Plots, Printf, Distributions, DelimitedFiles, Random, Setfield
 
 rt = pwd()
 
-include(rt * "/Problem Sets/PS1_F2019/ps1_F2019_model_hj.jl")
+include(rt * "/Problem Sets/PS1_F2019/code/ps1_F2019_model_hj.jl")
 
 ## Exercise 1-a.
 
