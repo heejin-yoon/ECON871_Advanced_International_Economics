@@ -406,17 +406,16 @@ function simulate(prim::Primitives, res::Results)
         m3 = 0.0
     end
     # exportsales = sum(exportsales) / sum(exporter)
-a = domestic_sim + exports_sim
-    cv = zeros(400)
-    cv = var(log.(a[:, :])) / mean(log.(a[:, :]))
-
-    @threads for Y_index = 1:400
-        cv[Y_index] = var(log.(a[Y_index, :])) / mean(log.(a[Y_index, :]))
-    end
-    log(1.4)
-log(1.6)
-    std(domestic_sim)/mean(domestic_sim)
-    m4 = mean(cv)
+    total = domestic_sim + exports_sim
+    m4 = var(log.(total[:, :])) / mean(log.(total[:, :]))
+    
+    # cv = zeros(400)
+    # @threads for Y_index = 1:400
+    #     cv[Y_index] = var(log.(a[Y_index, :])) / mean(log.(a[Y_index, :]))
+    # end
+    # m4 = mean(cv)
+    
+    
     # cv = zeros(400)
     # for T_index = 1:400
     #     cv[T_index] = std(log.(domestic_sim[T_index, :])) / mean(log.(domestic_sim[T_index, :]))
