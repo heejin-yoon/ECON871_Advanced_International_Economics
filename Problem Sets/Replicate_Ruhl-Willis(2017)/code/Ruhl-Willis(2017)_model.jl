@@ -413,7 +413,9 @@ a = domestic_sim + exports_sim
     @threads for Y_index = 1:400
         cv[Y_index] = var(log.(a[Y_index, :])) / mean(log.(a[Y_index, :]))
     end
-
+    log(1.4)
+log(1.6)
+    std(domestic_sim)/mean(domestic_sim)
     m4 = mean(cv)
     # cv = zeros(400)
     # for T_index = 1:400
