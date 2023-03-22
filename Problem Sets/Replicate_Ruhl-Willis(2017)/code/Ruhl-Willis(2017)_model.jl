@@ -22,11 +22,7 @@ end
 ## structure that holds model results
 
 mutable struct Results
-    f₀::Float64  # entry cost
-    f₁::Float64  # continuing cost
-    C_star::Float64  # world aggregate demand
-    σ_ϵ::Float64  # ϵ process
-    ρ_ϵ::Float64  # ϵ process
+    ϕ::Array{Float64}
     n_ϵ::Int64
     Π_ϵ::Array{Float64,2}
     ϵ_grid::Array{Float64}
@@ -40,9 +36,6 @@ end
 mutable struct Simulations
     Q_sim::Array{Float64}
     ϵ_sim::Array{Float64, 2}
-    # pol_func_sim::Array{Float64,2}
-    # domestic_sim::Array{Float64,2}
-    # exports_sim::Array{Float64,2}
     moments_sim::Array{Float64}
 end
 
@@ -51,26 +44,21 @@ end
 
 function Initialize()
     prim = Primitives()
-    f₀ = 0.961  # entry cost
-    f₁ = 0.047  # continuing cost
-    C_star = 0.146  # world aggregate demand
-    σ_ϵ = 0.116  # ϵ process
-    ρ_ϵ = 0.873  # ϵ process
+    ϕ = [0.961, 0.04417998355827739, 0.14499085812207024, 0.14261294715764294, 0.862488261641639]
+    ϕ = [0.961, 0.047, 0.146, 0.117, 0.873]
+    # ϕ = [0.961, 0.047, 0.1440402171160336, 0.12833318683668238, 0.8600259464524087]    
     n_ϵ = 455
-    Π_ϵ = tauchen(n_ϵ, ρ_ϵ, σ_ϵ, 0.0)[1]
-    ϵ_grid = tauchen(n_ϵ, ρ_ϵ, σ_ϵ, 0.0)[2]
+    Π_ϵ, ϵ_grid = tauchen(n_ϵ, ϕ[5], ϕ[4], 0.0)
     val_func = zeros(2, n_ϵ, prim.n_Q)
     pol_func = zeros(Int64, 2, n_ϵ, prim.n_Q)
     Q_sim = simulate_Q(prim)
     ϵ_sim = zeros(prim.T, prim.N)
-    # pol_func_sim = zeros(prim.T, prim.N)
-    # domestic_sim = zeros(prim.T, prim.N)
-    # exports_sim = zeros(prim.T, prim.N)
     moments_sim = zeros(length(prim.moments_data))
-    res = Results(f₀, f₁, C_star, σ_ϵ, ρ_ϵ, n_ϵ, Π_ϵ, ϵ_grid, val_func, pol_func)
+    res = Results(ϕ, n_ϵ, Π_ϵ, ϵ_grid, val_func, pol_func)
     sim = Simulations(Q_sim, ϵ_sim, moments_sim)
     prim, res, sim
 end
+
 
 ##
 
@@ -103,15 +91,15 @@ end
 ## calculate the cutoff productivity of each country pair
 
 function fixed_cost(prim::Primitives, res::Results, X::Int64, X_prime::Int64)
-    @unpack f₀, f₁ = res
+    @unpack ϕ = res
 
     if X_prime == 0
         f = 0.0
     elseif X_prime == 1
         if X == 0
-            f = f₀
+            f = ϕ[1]
         elseif X == 1
-            f = f₁
+            f = ϕ[2]
         end
     end
 
@@ -123,8 +111,9 @@ end
 
 function plant_revenue(prim::Primitives, res::Results, X_prime::Int64, Q_value::Float64, ϵ_value::Float64)
     @unpack θ, α_N, α_K, l, r = prim
-    @unpack C_star = res
+    @unpack ϕ = res
 
+    C_star = ϕ[3]
     w = α_N * ((θ - 1) / θ) * l^(α_N * (θ - 1) / θ - 1)
     X = (1 + X_prime * (exp(Q_value)^θ) * C_star)^(1 / θ) * exp(ϵ_value)
 
@@ -142,8 +131,9 @@ end
 
 function profit_function(prim::Primitives, res::Results, X_prime::Int64, Q_value::Float64, ϵ_value::Float64)
     @unpack θ, α_N, α_K, l, r = prim
-    @unpack C_star = res
+    @unpack ϕ = res
 
+    C_star = ϕ[3]
     w = α_N * ((θ - 1) / θ) * l^(α_N * (θ - 1) / θ - 1)
     X = (1 + X_prime * (exp(Q_value)^θ) * C_star)^(1 / θ) * exp(ϵ_value)
 
@@ -191,6 +181,7 @@ function Bellman(prim::Primitives, res::Results, Π_0, Π_1)
 
     val_func_new, pol_func_new
 end
+
 
 ## define find_wage function to minimize the excess trade flow
 
@@ -268,15 +259,14 @@ end
 
 function simulate_epsilon(prim::Primitives, res::Results)
     @unpack T, N, drop = prim
-    @unpack ρ_ϵ, σ_ϵ = res
+    @unpack ϕ = res
+    
+    σ_ϵ, ρ_ϵ = ϕ[4], ϕ[5]
 
     Random.seed!(12)
-    # dist = Normal(0, σ_ϵ)
-    # η = randn()
+ 
     ϵ = zeros(T, N)
-
-    # ϵ[1, :] = η[1, :]
-
+ 
     η = randn(N) * σ_ϵ / sqrt(1 - ρ_ϵ)
     ϵ[1, :] = η
     for T_index = 2:T
@@ -286,6 +276,7 @@ function simulate_epsilon(prim::Primitives, res::Results)
 
     ϵ
 end
+
 
 ##
 
@@ -384,21 +375,26 @@ function simulate(prim::Primitives, res::Results)
         X_prime = pol_func_sim_annual[Y_index+1, :]
         starter = 0
         stopper = 0
-        total_nonexporter = 1914 - sum(X)
+        total_nonexporter = N - sum(X)
 
-        for N_index = 1:prim.N
-            if X[N_index] == 0
-                if X_prime[N_index] == 1
-                    starter = starter + 1
-                end
-            else
-                if X_prime[N_index] == 0
-                    stopper = stopper + 1
+        if total_nonexporter == 0 || total_nonexporter == N
+            starterrate[Y_index] = 0.0
+            stopperrate[Y_index] = 0.0
+        else
+            for N_index = 1:prim.N
+                if X[N_index] == 0
+                    if X_prime[N_index] == 1
+                        starter = starter + 1
+                    end
+                else
+                    if X_prime[N_index] == 0
+                        stopper = stopper + 1
+                    end
                 end
             end
+            starterrate[Y_index] = starter / total_nonexporter
+            stopperrate[Y_index] = stopper / (N - total_nonexporter)
         end
-        starterrate[Y_index] = starter / total_nonexporter
-        stopperrate[Y_index] = stopper / (N - total_nonexporter)
     end
     m1 = mean(starterrate)
     m2 = mean(stopperrate)
@@ -410,10 +406,12 @@ function simulate(prim::Primitives, res::Results)
         m3 = 0.0
     end
     # exportsales = sum(exportsales) / sum(exporter)
+a = domestic_sim + exports_sim
+    cv = zeros(400)
+    cv = var(log.(a[:, :])) / mean(log.(a[:, :]))
 
-    cv = zeros(100)
-    for Y_index = 1:100
-        cv[Y_index] = var(log.(domestic_sim_annual[Y_index, :])) / mean(log.(domestic_sim_annual[Y_index, :]))
+    @threads for Y_index = 1:400
+        cv[Y_index] = var(log.(a[Y_index, :])) / mean(log.(a[Y_index, :]))
     end
 
     m4 = mean(cv)
@@ -427,7 +425,7 @@ function simulate(prim::Primitives, res::Results)
     firmno = zeros(N * Y)
     year = zeros(N * Y)
 
-    for N_index = 1:N
+    @threads for N_index = 1:N
         for Y_index = 1:Y
             y[(N_index-1)*100+Y_index] = log.(domestic_sim_annual[Y_index, N_index])
             firmno[(N_index-1)*100+Y_index] = N_index
@@ -452,20 +450,23 @@ end
 function objective_function(prim, param)
     @unpack moments_data = prim
 
-    res.f₀ = param[1]
-    res.f₁ = param[2]
-    res.C_star = param[3]
-    res.σ_ϵ = param[4]
-    res.ρ_ϵ = param[5]
+    println(param)
 
-    # W = Matrix{Float64}(I, 5, 5)
+    if param[1] < 0 || param[1] > 1 || param[2] < 0 || param[2] > 1 ||param[3] < 0 || param[4] < 0 || param[5] < 0 || param[5] > 1 
+        ObjFn = 10e100
 
-    solve_model(prim, res)
-    M = simulate(prim, res)
+    else
+        res.ϕ = param
 
-    ObjFn = (moments_data - M)' * (moments_data - M)
-    
-    sim.moments_sim = M
+        # W = Matrix{Float64}(I, 5, 5)
+
+        solve_model(prim, res)
+        M = simulate(prim, res)
+
+        ObjFn = (moments_data - M)' * (moments_data - M)
+        
+        sim.moments_sim = M
+    end
 
     return ObjFn
 end
@@ -473,17 +474,8 @@ end
 ##
 
 function Minimize_Moment(prim::Primitives, res::Results, initial)
-    @unpack f₀, f₁, C_star, σ_ϵ, ρ_ϵ = res
 
-    # J(param) = (moments_data - m_hat(param))' * W * (moments_data - m_hat(param))
-    # lower = [0.1, 0.0, 0.0, 0.1, 0.3]
-    # upper = [1.0, 0.5, 0.6, 0.3, 1.0]
-    # b_initial = (lower + upper)./2
-    opt = optimize(phi -> objective_function(prim, phi), initial, BFGS(), Optim.Options(show_trace=true, iterations=30))
+    opt = optimize(phi -> objective_function(prim, phi), initial, BFGS(), Optim.Options(show_trace=true, iterations=10))
 
     opt
 end
-
-##
-
-# MoM(prim, res, sim)
