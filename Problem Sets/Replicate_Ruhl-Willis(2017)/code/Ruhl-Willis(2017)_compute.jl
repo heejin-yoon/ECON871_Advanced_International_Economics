@@ -5,20 +5,21 @@ rt = pwd()
 
 include(rt * "/Problem Sets/Replicate_Ruhl-Willis(2017)/code/Ruhl-Willis(2017)_model.jl")
 
-## Exercise b.
-
 prim, res, sim = Initialize()
+
+
+## Check whether the model is working okay
+
 solve_model(prim, res)
-simulate(prim, res)
-## Check wether the model is working okay.
+sim.moments_sim = simulate(prim, res)
+diff = abs.(sim.moments_sim - prim.moments_data) 
+moments = DataFrame([["Starter Rate", "Stopper Rate", "Average Export-Sales Ratio", "Coefficient of Variation", "Slope of Domestic Sales Regression"] prim.moments_data sim.moments_sim diff], [:Moment, :Data, :Simulation_Baseline, :Difference])
+show(stdout, moments)
 
-# data_lowestQ = DataFrame(pol_0=res.pol_func[1,:,1], pol_1=res.pol_func[2,:,1], val_0=res.val_func[1,:,1], val_1=res.val_func[2,:,1])
-# writedlm("data_lowestQ.csv", Iterators.flatten(([names(data_lowestQ)], eachrow(data_lowestQ))), ',')
 
-##
+## Sunk-Cost Model (Baseline)
 
 initial = [0.961, 0.047, 0.146, 0.117, 0.873]
-initial = [0.961, 0.047, 0.1440402171160336, 0.12833318683668238, 0.8600259464524087]
 sunkcost = Minimize_Moment(prim, res, initial)
-ϕ = sunkcost.minimizer
+ϕ_sunkcost = sunkcost.minimizer
 

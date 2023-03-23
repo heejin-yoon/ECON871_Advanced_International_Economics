@@ -44,9 +44,7 @@ end
 
 function Initialize()
     prim = Primitives()
-    ϕ = [0.961, 0.04417998355827739, 0.14499085812207024, 0.14261294715764294, 0.862488261641639]
     ϕ = [0.961, 0.047, 0.146, 0.117, 0.873]
-    # ϕ = [0.961, 0.047, 0.1440402171160336, 0.12833318683668238, 0.8600259464524087]    
     n_ϵ = 455
     Π_ϵ, ϵ_grid = tauchen(n_ϵ, ϕ[5], ϕ[4], 0.0)
     val_func = zeros(2, n_ϵ, prim.n_Q)
@@ -153,7 +151,6 @@ function Bellman(prim::Primitives, res::Results, Π_0, Π_1)
 
     val_func_new = zeros(2, n_ϵ, n_Q)
     pol_func_new = zeros(Int64, 2, n_ϵ, n_Q)
-    # median_rev = plant_revenue(prim, res, 0, 0.0, 0.0)[1] # non-exporting, ln(ϵ) = 0, ln(Q) = 0
 
     @threads for ϵ_index = 1:n_ϵ
         for Q_index = 1:n_Q
@@ -221,7 +218,7 @@ function solve_model(prim::Primitives, res::Results)
         end
     end
     println("Value function converged after ", n, " iterations.")
-    # println(" ")
+    println(" ")
 
 end
 
@@ -243,7 +240,6 @@ function simulate_Q(prim::Primitives)
     @unpack T, ρ_Q, σ_Q, drop = prim
 
     Random.seed!(12341234)
-    # dist = Normal(0, σ_Q)
     Q = zeros(T)
 
     η = randn() * σ_Q / sqrt(1 - ρ_Q)
@@ -317,16 +313,11 @@ function simulate(prim::Primitives, res::Results)
     Y = floor(Int64, (T - drop) / 4)
 
     sim.ϵ_sim = simulate_epsilon(prim, res)
-    # sim.ϵ_sim = zeros(T, N)
-    # for N_index = 1:N
-    #     sim.ϵ_sim[:, N_index] = AR1sim(T, res.ϵ_grid, res.Π_ϵ)
-    # end
 
     pol_func_sim_temp, domestic_sim_temp, exports_sim_temp = simulate_pol_func(prim, res)
 
     # starterrate = zeros(T - drop)
     # stopperrate = zeros(T - drop)
-
     # X = pol_func_sim[drop, :]
     # for T_index = 1:(T-drop)
     #     X = pol_func_sim[T_index, :]
@@ -367,6 +358,8 @@ function simulate(prim::Primitives, res::Results)
     end
     pol_func_sim_annual = pol_func_sim_annual .> 0
 
+    ## starter and stopper rates
+
     starterrate = zeros(Y - 1)
     stopperrate = zeros(Y - 1)
 
@@ -399,27 +392,22 @@ function simulate(prim::Primitives, res::Results)
     m1 = mean(starterrate)
     m2 = mean(stopperrate)
 
+    ## export-sale ratio
+
     exportsales = exports_sim_annual ./ (domestic_sim_annual + exports_sim_annual)
     exporter = (exportsales .> 0)
     m3 = sum(exportsales) / sum(exporter)
     if sum(exporter) == 0
         m3 = 0.0
     end
-    # exportsales = sum(exportsales) / sum(exporter)
-    total = domestic_sim + exports_sim
-    m4 = var(log.(total[:, :])) / mean(log.(total[:, :]))
+
+
+    ## coefficient of variation
+
+    m4 = var(log.(domestic_sim[:, :])) / mean(log.(domestic_sim[:, :])) # This is the closest moment value I can obtain.
     
-    # cv = zeros(400)
-    # @threads for Y_index = 1:400
-    #     cv[Y_index] = var(log.(a[Y_index, :])) / mean(log.(a[Y_index, :]))
-    # end
-    # m4 = mean(cv)
-    
-    
-    # cv = zeros(400)
-    # for T_index = 1:400
-    #     cv[T_index] = std(log.(domestic_sim[T_index, :])) / mean(log.(domestic_sim[T_index, :]))
-    # end
+
+    ## slope of domestic sales regression
 
     y = zeros(N * Y)
     y_lag = zeros(N * Y)
@@ -440,11 +428,11 @@ function simulate(prim::Primitives, res::Results)
 
 
     df = DataFrame(y_lag=y_lag, y=y, firmno=firmno, year=year)
-    df = filter(row -> !isnan(row.y_lag), df)
+    df = df[.!isnan.(df.y_lag), :]
 
-    γ = reg(df, @formula(y ~ y_lag + fe(firmno) + fe(year))).coef[1]
+    m5 = reg(df, @formula(y ~ y_lag + fe(firmno) + fe(year))).coef[1]
 
-    [m1, m2, m3, m4, γ]
+    [m1, m2, m3, m4, m5]
 end
 
 ##
